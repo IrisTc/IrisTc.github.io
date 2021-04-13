@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据库原理 | Iris&#39;s notebook</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="学习记录与总结">
+    
+    <link rel="preload" href="/assets/css/0.styles.b607c32c.css" as="style"><link rel="preload" href="/assets/js/app.e6c7c4dd.js" as="script"><link rel="preload" href="/assets/js/2.e6ccdba6.js" as="script"><link rel="preload" href="/assets/js/9.f85e0862.js" as="script"><link rel="prefetch" href="/assets/js/10.b8b5d1d4.js"><link rel="prefetch" href="/assets/js/11.e6c27ae0.js"><link rel="prefetch" href="/assets/js/12.200b17e9.js"><link rel="prefetch" href="/assets/js/13.1b66e360.js"><link rel="prefetch" href="/assets/js/14.6e1cba7d.js"><link rel="prefetch" href="/assets/js/15.e0c9fb50.js"><link rel="prefetch" href="/assets/js/16.7b163ee6.js"><link rel="prefetch" href="/assets/js/17.e59bb99d.js"><link rel="prefetch" href="/assets/js/18.5fe9cc7a.js"><link rel="prefetch" href="/assets/js/19.768c665a.js"><link rel="prefetch" href="/assets/js/20.c67cb0e5.js"><link rel="prefetch" href="/assets/js/21.b2e4f6a3.js"><link rel="prefetch" href="/assets/js/22.1eb0447c.js"><link rel="prefetch" href="/assets/js/23.2d3c2dbf.js"><link rel="prefetch" href="/assets/js/24.9859a060.js"><link rel="prefetch" href="/assets/js/25.c9d04017.js"><link rel="prefetch" href="/assets/js/26.c4f0effd.js"><link rel="prefetch" href="/assets/js/27.8d760eb1.js"><link rel="prefetch" href="/assets/js/28.1cc7c407.js"><link rel="prefetch" href="/assets/js/29.726bb1a8.js"><link rel="prefetch" href="/assets/js/3.9a705177.js"><link rel="prefetch" href="/assets/js/30.aea8d770.js"><link rel="prefetch" href="/assets/js/31.15506b53.js"><link rel="prefetch" href="/assets/js/32.15d7f900.js"><link rel="prefetch" href="/assets/js/33.015155a9.js"><link rel="prefetch" href="/assets/js/34.dac1be22.js"><link rel="prefetch" href="/assets/js/35.c13b2ad5.js"><link rel="prefetch" href="/assets/js/36.2aba91aa.js"><link rel="prefetch" href="/assets/js/37.1bc3f5be.js"><link rel="prefetch" href="/assets/js/38.6d0e1316.js"><link rel="prefetch" href="/assets/js/39.2bec7c17.js"><link rel="prefetch" href="/assets/js/4.32fa7222.js"><link rel="prefetch" href="/assets/js/40.cad0a8f0.js"><link rel="prefetch" href="/assets/js/41.8f70d6a8.js"><link rel="prefetch" href="/assets/js/42.29c27b5d.js"><link rel="prefetch" href="/assets/js/5.bbf8cec9.js"><link rel="prefetch" href="/assets/js/6.91b7b8ed.js"><link rel="prefetch" href="/assets/js/7.27b7c40e.js"><link rel="prefetch" href="/assets/js/8.af5209be.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b607c32c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Iris's notebook</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/IrisTc" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/IrisTc" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>大三上课程</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/" aria-current="page" class="sidebar-link">学习记录与总结</a></li><li><a href="/大三上课程/WEB前端开发技术复习.html" class="sidebar-link">WEB前端开发技术复习</a></li><li><a href="/大三上课程/数据库原理提纲.html" class="active sidebar-link">数据库原理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/大三上课程/算法复习提纲.html" class="sidebar-link">算法复习提纲</a></li><li><a href="/大三上课程/计算机网络习题.html" class="sidebar-link">计算机网络习题</a></li><li><a href="/大三上课程/计算机网络复习提纲.html" class="sidebar-link">计算机网络复习提纲</a></li><li><a href="/大三上课程/需求分析复习提纲.html" class="sidebar-link">需求分析复习提纲</a></li><li><a href="/大三上课程/马原简答题.html" class="sidebar-link">马原简答题</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>大二下课程</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数据库原理"><a href="#数据库原理" class="header-anchor">#</a> 数据库原理</h1> <h3 id="第一章-数据库概论"><a href="#第一章-数据库概论" class="header-anchor">#</a> 第一章 数据库概论</h3> <h4 id="数据库管理技术的发展"><a href="#数据库管理技术的发展" class="header-anchor">#</a> 数据库管理技术的发展</h4> <ul><li>人工管理阶段</li> <li>文件系统阶段
+<ul><li>缺点：数据冗余大、数据和程序缺乏独立性</li></ul></li> <li>数据库系统阶段
+<ul><li>特点：数据可高度共享、数据与应用程序互相独立</li></ul></li></ul> <h4 id="数据系统的构成"><a href="#数据系统的构成" class="header-anchor">#</a> 数据系统的构成</h4> <ul><li>数据库系统DBS
+<ul><li>特点：整体数据结构化；数据的共享度高；数据的独立性高；高度的数据控制能力（安全性、完整性、并发控制能力、恢复能力）</li></ul></li> <li>数据库管理系统DBMS
+<ul><li>功能：数据定义；数据操纵；完整性约束检查；访问控制；并发控制；数据库恢复</li></ul></li> <li>数据库管理员DBA</li></ul> <h4 id="数据库系统的结构-三级模式结构"><a href="#数据库系统的结构-三级模式结构" class="header-anchor">#</a> 数据库系统的结构——三级模式结构</h4> <ul><li><p>优点：将用户应用和物理数据库分离出来</p></li> <li><p>数据独立性</p> <ul><li>数据的逻辑独立性：指当数据库的模式发生改变时，只需要改变存在于外模式和概念模式之间的映射转换，而无需改变外模式或应用程序</li> <li>数据的物理独立性：指当数据库的内模式发生改变时，系统只要改变概念模式和内模式之间的映射转换，而不用改变模式，更不用改变外模式</li></ul></li> <li><p>数据库</p> <ul><li><p>内模式</p> <p>存储文件</p> <p>也称存储模式，定义了数据库中全部数据的物理结构、数据的存储方法、存取策略，与软硬件都有关</p> <ul><li><p>模式</p> <p>基本表</p> <p>也称逻辑模式，仅描述数据库的结构，不涉及硬件和语言</p> <ul><li><p>外模式A</p> <p>视图</p> <p>也称用户模式，个别用户组的数据库视图</p> <ul><li>应用1</li></ul></li> <li><p>外模式B</p> <ul><li>应用2</li> <li>应用3</li></ul></li></ul></li></ul></li></ul></li></ul> <h6 id="数据独立性"><a href="#数据独立性" class="header-anchor">#</a> 数据独立性</h6> <ul><li><p>外模式/模式映像</p> <p>数据的逻辑独立性</p></li> <li><p>模式/内模式映像</p> <p>数据的物理独立性</p></li></ul> <h3 id="第二章-建立数据模型"><a href="#第二章-建立数据模型" class="header-anchor">#</a> 第二章 建立数据模型</h3> <h4 id="概念模型"><a href="#概念模型" class="header-anchor">#</a> 概念模型</h4> <ul><li><p>表示方法：实体——联系模型</p></li> <li><p>三个主要概念：</p> <ul><li>实体集：具有相同类型及相同性质的实体集合</li> <li>联系集：同类联系的集合</li> <li>属性</li></ul></li></ul> <h4 id="数据模型"><a href="#数据模型" class="header-anchor">#</a> 数据模型</h4> <ul><li>三要素：
+<ul><li>规定了一种数据结构</li> <li>规定其中数据可以执行的操作及操作规则</li> <li>提供定义完整性约束条件的手段</li></ul></li></ul> <h4 id="关系模型"><a href="#关系模型" class="header-anchor">#</a> 关系模型</h4> <ul><li>由数据结构、数据操作和完整性约束组成</li> <li>完整性约束：
+<ul><li><p>实体完整性</p> <p>主属性不能取空值</p></li> <li><p>参照完整性</p> <p>外键不能取空值</p></li> <li><p>用户定义的完整性</p></li></ul></li></ul> <h3 id="数据库设计"><a href="#数据库设计" class="header-anchor">#</a> 数据库设计</h3> <h3 id="sql编程"><a href="#sql编程" class="header-anchor">#</a> SQL编程</h3> <h5 id="ddl"><a href="#ddl" class="header-anchor">#</a> DDL</h5> <ul><li><p>创建</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> TEABLE Employee
+<span class="token punctuation">(</span>Eno <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>
+ Ename <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+ Age <span class="token keyword">INT</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>修改</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Employee
+<span class="token keyword">ADD</span> Emgr <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Employee
+<span class="token keyword">ALTER</span> <span class="token keyword">COLUMN</span> Emgr <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Employee
+<span class="token keyword">DROP</span> <span class="token keyword">COLUMN</span> Emgr<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>删除</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> Employee<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>添加约束</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Employee
+<span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> UQ_name <span class="token keyword">UNIQUE</span><span class="token punctuation">(</span>Ename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>删除约束（不能直接更新约束）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Employee
+<span class="token keyword">DROP</span> <span class="token keyword">CONSTRAINT</span> UQ_name<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>添加索引</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> IX_Emp
+<span class="token keyword">ON</span> Employee<span class="token punctuation">(</span>Dno<span class="token punctuation">,</span>Eno <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li></ul> <h5 id="dml"><a href="#dml" class="header-anchor">#</a> DML</h5> <ul><li><p>增加</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Employee
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token number">38</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>修改</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">UPDATE</span> Employee
+<span class="token keyword">SET</span> Ename<span class="token operator">=</span><span class="token string">'xx'</span>
+	<span class="token keyword">WHERE</span> Ename<span class="token operator">=</span><span class="token string">'xxx'</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>删除</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> Empoyee
+<span class="token keyword">WHERE</span> Eno<span class="token operator">=</span><span class="token string">'1003'</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>查询</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> Eno<span class="token punctuation">,</span>Ename<span class="token punctuation">,</span><span class="token number">2021</span><span class="token operator">-</span>Age <span class="token keyword">AS</span> <span class="token punctuation">[</span><span class="token keyword">Year</span> <span class="token keyword">of</span> Birth<span class="token punctuation">]</span>
+<span class="token keyword">FROM</span> Employee
+<span class="token keyword">WHERE</span> Title<span class="token operator">=</span><span class="token string">'工程师'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> Dno <span class="token keyword">DESC</span><span class="token punctuation">,</span> Age<span class="token punctuation">;</span>
+
+<span class="token keyword">WHERE</span> Title <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'xx'</span><span class="token punctuation">,</span><span class="token string">'xxx'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">WHERE</span> Basepay <span class="token operator">NOT</span> <span class="token operator">BETWEEN</span> <span class="token number">500</span> <span class="token operator">AND</span> <span class="token number">700</span>
+
+<span class="token keyword">WHERE</span> Check_date <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+
+<span class="token keyword">WHERE</span> Iname <span class="token operator">LIKE</span> <span class="token string">'%性能研究%'</span>
+<span class="token operator">%</span>：任意长度字符串 
+_：任意单个字符
+</code></pre></div><ul><li><p>分组查询</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> Dno<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>Age<span class="token punctuation">)</span> <span class="token keyword">AS</span> Average_Age
+<span class="token keyword">FROM</span> Employee
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> Dno
+<span class="token keyword">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>Age<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">40</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>内连接</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Employee e<span class="token punctuation">,</span> Department d
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>Dno<span class="token operator">=</span>d<span class="token punctuation">.</span>Dno<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>外连接</p> <p>左外连接返回所有左边，右外连接返回所有右边，FULL JOIN 返回全部</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Employee e <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> Department d
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>Dno<span class="token operator">=</span>d<span class="token punctuation">.</span>Dno<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>EXISTS</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">//查询一个项目都没有参加的职工情况</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> employee
+<span class="token keyword">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span>
+	<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+     <span class="token keyword">FROM</span> Item_emp
+     <span class="token keyword">WHERE</span> eno<span class="token operator">=</span>employee<span class="token punctuation">.</span>eno<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     
+<span class="token comment">//查询参加了全部项目的职工情况</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> employee
+<span class="token keyword">WHERE</span> <span class="token operator">NOT</span> EXISITS
+	<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+     <span class="token keyword">FROM</span> Item
+     <span class="token keyword">WHERE</span> <span class="token operator">NOT</span> EXISITS
+    	<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+         <span class="token keyword">FROM</span> Item_emp
+         <span class="token keyword">WHERE</span> Item_emp<span class="token punctuation">.</span>eno<span class="token operator">=</span>Employee<span class="token punctuation">.</span>eno
+        		<span class="token operator">and</span> Item_emp<span class="token punctuation">.</span>ino<span class="token operator">=</span>Item<span class="token punctuation">.</span>ino<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div></li> <li><p>并 UNION</p></li> <li><p>交 intersect</p></li> <li><p>差 EXCEPT</p></li></ul></li></ul> <h5 id="dcl"><a href="#dcl" class="header-anchor">#</a> DCL</h5> <ul><li><p>授权</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span>
+	<span class="token keyword">ON</span> S
+	<span class="token keyword">TO</span> U1
+	<span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+
+<span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span>：可扩散该权限
+</code></pre></div></li> <li><p>回收</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">REVOKE</span> <span class="token keyword">UPDATE</span><span class="token punctuation">(</span>Sno<span class="token punctuation">)</span>
+	<span class="token keyword">ON</span> S
+	<span class="token keyword">FROM</span> U4
+	<span class="token keyword">CASCADE</span><span class="token punctuation">;</span>
+	
+<span class="token keyword">CASCADE</span>：间接获得该权限的用户权限也被收回
+</code></pre></div></li></ul> <h5 id="完整性约束"><a href="#完整性约束" class="header-anchor">#</a> 完整性约束</h5> <ul><li><p>实体完整性约束——主码</p> <p><code>PRIMARY KEY(Eno)</code></p></li> <li><p>参照完整性约束——外部码</p> <p><code>FOREIGN KEY(Dno) REFERENCES Department(Dno)</code></p> <ul><li><code>ON DELETE NO ACTION</code></li> <li><code>ON UPDATE CASCADE</code>：级联策略，当更新父表的主码值时，字表中具有该外部码值的元组也会被更新</li></ul></li> <li><p>用户自定义完整性约束——CHECK</p> <p><code>Age int CHECK(Age&gt;18 AND Age&lt;=65)</code></p></li></ul> <h5 id="视图"><a href="#视图" class="header-anchor">#</a> 视图</h5> <ul><li><p>创建视图</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> Employee_02
+<span class="token keyword">AS</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span>
+	<span class="token keyword">FROM</span> Employee
+	<span class="token keyword">WHERE</span> Dno<span class="token operator">=</span><span class="token string">'02'</span>
+	<span class="token keyword">WITH</span> <span class="token keyword">CHECK</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+	
+<span class="token keyword">WITH</span> <span class="token keyword">CHECK</span> <span class="token keyword">OPTION</span>：若对该视图进行插入、修改、删除是，会自动判断是否符合条件
+</code></pre></div></li> <li><p>删除视图</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> Employee_02
+</code></pre></div></li> <li><p>对视图的更新即对其基本表的更新：增删改</p></li></ul> <h5 id="存储过程"><a href="#存储过程" class="header-anchor">#</a> 存储过程</h5> <p>由一组SQL语句组成，经编译后存储在数据库中，供应用程序多次调用，可以提高数据库应用程序的效率，减少网络流量。</p> <h5 id="触发器"><a href="#触发器" class="header-anchor">#</a> 触发器</h5> <p>触发器是一类由数据库操作事件驱动的特殊过程，任何用户对某触发器指定的数据进行增删改操作时，系统将自动激活相应的触发动作，在数据库服务器上进行集中的完整性控制。</p> <h3 id="关系代数"><a href="#关系代数" class="header-anchor">#</a> 关系代数</h3> <ul><li>并</li> <li>差</li> <li>交</li> <li>广义笛卡尔积</li> <li>投影</li> <li>选择</li> <li>连接</li> <li>除</li></ul> <h3 id="关系数据库规范化理论"><a href="#关系数据库规范化理论" class="header-anchor">#</a> 关系数据库规范化理论</h3> <ul><li><p>第一范式</p> <p>关系模式中不包含多值属性</p></li> <li><p>第二范式</p> <p>满足第一范式，并且它的所有非主属性都完全函数依赖于R的任一候选码</p></li> <li><p>第三范式</p> <p>满足第二范式，并且它的所有非主属性码都不传递依赖于任何候选码</p></li> <li><p>BCNF</p> <p>F的任一函数依赖X-Y中X都包含了R的一个码</p> <p>所有非主属性对每一个码都是完全函数依赖</p></li></ul> <h3 id="数据库保护"><a href="#数据库保护" class="header-anchor">#</a> 数据库保护</h3> <h4 id="事务"><a href="#事务" class="header-anchor">#</a> 事务</h4> <ul><li>概念：用户定义的一个数据库操作序列，是一个不可分割的工作单位</li> <li>ACID特性：原子性；一致性；隔离性；持久性</li> <li>事务日志：事务每一次对数据库的更新都必须写入日志文件，必须先写入日志文件再执行更新操作；作用：保证数据库是可恢复的</li></ul> <h4 id="并发控制技术"><a href="#并发控制技术" class="header-anchor">#</a> 并发控制技术</h4> <ul><li><p>问题：丢失更新、读“脏”数据、不可重复读</p></li> <li><p>封锁：某事务在对某对象执行操作前，先对此对象加上自己的所，其他事务对此对象的操作就受到了规定的限制</p> <ul><li><p>排它锁 X锁</p> <p>一个事务对某数据对象成功地加了排它锁后，其他事务就不能对其加锁，不能对此对象执行任何操作</p></li> <li><p>共享锁 S锁</p> <p>一个事务对某数据对象成功地加了共享锁后，其他事务不能对该对象加上X锁，但可以加上自己的S锁</p></li></ul></li> <li><p>三级封锁</p> <ul><li><p>一级封锁不加S锁，只加X锁，只能解决丢失更新问题</p></li> <li><p>二级封锁</p> <p>读之前加上S锁，读完后释放S锁，不保证可重复度</p></li> <li><p>三级封锁</p> <p>加X锁和S锁</p></li></ul></li> <li><p>可串行化：与某一种正确调度结果相同的调度方式</p></li> <li><p>两段封锁协议</p> <p>一个事务在读写任何数据前必须首先申请并获得对该数据的封锁；一旦一个事务释放了一个封锁，则它就不得再申请任何封锁</p></li> <li><p>故障的种类：</p> <ul><li><p>事物内部故障</p> <p>利用日志文件撤销次失误对数据库已做的更新</p></li> <li><p>系统故障</p> <p>把未完成的事务对数据库的更新撤销，重做已提交事务对数据库的更新</p></li> <li><p>介质故障</p> <p>重装最新的数据库副本，重做事务</p></li> <li><p>计算机病毒</p></li></ul></li> <li><p>恢复机制：数据库转储法、日志文件法</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/12/2021, 12:08:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/大三上课程/WEB前端开发技术复习.html" class="prev">
+        WEB前端开发技术复习
+      </a></span> <span class="next"><a href="/大三上课程/算法复习提纲.html">
+        算法复习提纲
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e6c7c4dd.js" defer></script><script src="/assets/js/2.e6ccdba6.js" defer></script><script src="/assets/js/9.f85e0862.js" defer></script>
+  </body>
+</html>
